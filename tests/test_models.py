@@ -2,7 +2,7 @@
 
 import numpy as np
 import numpy.testing as npt
-
+import pytest
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""

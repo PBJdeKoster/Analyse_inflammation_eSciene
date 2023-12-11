@@ -45,4 +45,3 @@ def daily_min(data):
     :returns: The daily mininimum over all patients
     """
     return np.min(data, axis=0)
-
