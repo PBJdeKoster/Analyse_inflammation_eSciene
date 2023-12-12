@@ -33,11 +33,24 @@ def test_daily_mean_integers():
 @pytest.mark.parametrize(
     "test, expected",
     [
-        ([ [0, 0], [0, 0], [0, 0] ], [0, 0]),
-        ([ [4, 2], [3, 4], [5, 6] ], [4, 4]),
-        ([ [1, 2], [3, 4], [5, 6] ], [3, 4]),
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
+        ([[4, 2], [3, 4], [5, 6]], [4, 4]),
+        ([[1, 2], [3, 4], [5, 6]], [3, 4]),
     ])
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
     from inflammation.models import daily_mean
     npt.assert_array_equal(daily_mean(np.array(test)), np.array(expected))
+
+
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([[0, 0], [0, 0], [0, 0]], [0, 0]),
+        ([[2, 1], [4, 5]], [1, 2]),
+    ])
+def test_daily_std_dev(test, expected):
+    """Test std dev function works for array of zeroes and positive integers."""
+    from inflammation.models import daily_std_dev
+    npt.assert_array_equal(daily_std_dev(np.array(test)), np.array(expected))
+
