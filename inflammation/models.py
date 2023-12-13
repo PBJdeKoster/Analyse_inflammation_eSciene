@@ -55,3 +55,20 @@ def daily_std_dev(data):
     :returns: The daily standard deviation over all patients
     """
     return np.std(data, axis=0)
+
+
+def daily_above_threshold(data, patient_num, threshold):
+    """Determine whether each daily inflammation value for a
+    given patient exceeds a given threshold.
+
+    :param data: A 2D data array with inflammation data
+    (each row contains measurements for a single patient across all days)
+    :param patient_num: The row number of the patient
+    :param threshold: A number that specifies the upper bound a patient should
+    not exceed
+    
+    :returns: A 2D data array with booleans indicating whether the patient has
+    exceeded the threshold value 
+    """
+    result = list(map(lambda x: x > threshold, data[patient_num]))
+    return result
